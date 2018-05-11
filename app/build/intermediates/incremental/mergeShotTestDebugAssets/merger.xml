@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\GitClone\Demo4Roger\app\src\main\assets"/><source path="D:\GitClone\Demo4Roger\app\build\generated\assets\shaders\ShotTest\debug"/></dataSet><dataSet config="ShotTest"><source path="D:\GitClone\Demo4Roger\app\src\shotTest\assets"/></dataSet><dataSet config="debug"><source path="D:\GitClone\Demo4Roger\app\src\debug\assets"/></dataSet><dataSet config="ShotTestDebug"><source path="D:\GitClone\Demo4Roger\app\src\ShotTestDebug\assets"/></dataSet></merger>

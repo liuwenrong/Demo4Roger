@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+def keystoreFilepath = ''
+def keystorePSW = ''
+def keystoreAlias = ''
+def keystoreAliasPSW = ''
+// default keystore file, PLZ config file path in local.properties
+def keyfile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if (keystoreFilepath) {
+    keystorePSW = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+//        applicationId "com.roger.demo4roger"
+        minSdkVersion 25
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+            storeFile keyfile
+            storePassword keystorePSW
+        }
+        debug {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+            storeFile keyfile
+            storePassword keystorePSW
+        }
+    }
+
+    buildTypes {
+        debug {
+//            minifyEnabled true
+//            shrinkResources true
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+// Specifies a flavor dimension.
+    flavorDimensions "Roger"
+
+    productFlavors {
+//        main {
+//            dimension "Roger"
+//            applicationId "com.roger.demo4roger"
+//        }
+        interview {
+            dimension "Roger"
+            applicationId "com.roger.interview"
+        }
+        identityImg {
+            dimension "Roger"
+            applicationId "com.roger.identify4img"
+        }
+        dataStatistics {
+            dimension "Roger"
+            applicationId "com.baoliyota.statistics"
+        }
+        ShotTest {
+            dimension "Roger"
+            applicationId "com.roger.shot"
+        }
+    }
+
+    sourceSets {
+//        main {
+//
+//        }
+        identifyImg { //Identify the images 图像识别,百度识图
+            manifest.srcFile 'src/img/AndroidManifest.xml' //manifest会被合并到app的main的manifest文件中
+            java.srcDirs 'src/img/java' //java目录下的文件会被添加到main里的java目录中，所以不能和main里的类重名（含包名）
+            res.srcDirs 'src/img/res' //res目录下的资源文件会替换main里的资源文件
+        }
+        interview { // 面试题
+            manifest.srcFile 'src/interview/AndroidManifest.xml' //manifest会被合并到app的main的manifest文件中
+            java.srcDirs 'src/interview/java' //java目录下的文件会被添加到main里的java目录中，所以不能和main里的类重名（含包名）
+            res.srcDirs 'src/interview/res' //res目录下的资源文件会替换main里的资源文件
+        }
+        shotTest {
+            manifest.srcFile 'src/shotTest/AndroidManifest.xml'
+            java.srcDirs 'src/shotTest/java'
+            res.srcDirs 'src/shotTest/res'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation files('libs/cy_analysis-1.0.jar')
+}
