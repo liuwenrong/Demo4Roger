@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\GitClone\Demo4Roger\app\src\main\jniLibs"/></dataSet><dataSet config="ShotTest"><source path="D:\GitClone\Demo4Roger\app\src\shotTest\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\GitClone\Demo4Roger\app\src\debug\jniLibs"/></dataSet><dataSet config="ShotTestDebug"><source path="D:\GitClone\Demo4Roger\app\src\ShotTestDebug\jniLibs"/></dataSet></merger>

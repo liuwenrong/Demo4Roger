@@ -39,12 +39,12 @@
      />
     <View
         android:id="@+id/mirror_btn"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/btn_size_small"
+        android:layout_height="@dimen/btn_size_small"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="60dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="0dp"
         android:text="开镜"
         android:background="@drawable/shot_btn"
         />
@@ -53,7 +53,7 @@
         android:id="@+id/shot_btn"
         android:layout_width="@dimen/btn_size"
         android:layout_height="@dimen/btn_size"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="130dp"
         android:text="Shot1"
         android:visibility="invisible"
@@ -73,12 +73,12 @@
 
     <View
         android:id="@+id/shot_btn3"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
+        android:layout_width="@dimen/btn_size_middle"
+        android:layout_height="@dimen/btn_size_middle"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="120dp"
         android:text="Shot3"
         android:visibility="invisible"
         android:background="@drawable/shot_btn"
@@ -88,13 +88,23 @@
 
     <View
         android:id="@+id/shot_btn4"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="88dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="@dimen/btn_size_middle"
+        android:layout_height="@dimen/btn_size_middle"
         android:text="Shot4"
+        android:visibility="invisible"
+        android:background="@drawable/shot_btn"
+        />
+
+    <TextView
+        android:id="@+id/jump"
+        android:layout_width="@dimen/btn_size_small"
+        android:layout_height="@dimen/btn_size_small"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="Jump"
         android:visibility="invisible"
         android:background="@drawable/shot_btn"
         />

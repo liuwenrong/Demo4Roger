@@ -28,10 +28,12 @@ public class ShotActivity extends AppCompatActivity {
     long mMirrorTime;
     boolean mIsFirstShot = true;
     int mShotCount = 0;
+    int mJumpCount = 0;
     private View mShotBtn;
     private View mShotBtn2;
     private View mShotBtn3;
     private View mShotBtn4;
+    private View mJump;
     private Button mStartBtn;
     private View mMirrorBtn;
     private View mMoveVisualAngle;
@@ -104,11 +106,12 @@ public class ShotActivity extends AppCompatActivity {
                                                 mShotBtn2.setVisibility(View.INVISIBLE);
                                                 mShotBtn3.setVisibility(View.INVISIBLE);
                                                 mShotBtn4.setVisibility(View.INVISIBLE);
+                                                mJump.setVisibility(View.INVISIBLE);
                                                 mMoveX = mMoveX + Math.abs( mCurMoveX - mCurDownX);
                                                 mMoveY = mMoveY + Math.abs( mCurMoveY - mCurDownY);
                                                 mText = "开镜耗时" + mMirrorTime + "ms,开枪耗时" + mShotTime + "ms";
                                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle("测试反应速度")
-                                                        .setMessage(mText + ",2s点击次数:" + mShotCount + ",x方向移动: " + mMoveX + ", Y方向移动: " + mMoveY)
+                                                        .setMessage(mText + ",2s点击Shot次数:" + mShotCount +", Jump:" + mJumpCount + ",x方向移动: " + mMoveX + ", Y方向移动: " + mMoveY)
                                                         .setCancelable(false)
                                                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                                             public void onClick(DialogInterface dialog, int id) {
@@ -141,7 +144,12 @@ public class ShotActivity extends AppCompatActivity {
                             contentShot.setBackgroundResource(R.drawable.bg_3);
 //                mShotBtn.performClick();
                         }
+                        break;
 
+                    case R.id.jump:
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            mJumpCount ++;
+                        }
                         break;
 
 
@@ -157,11 +165,13 @@ public class ShotActivity extends AppCompatActivity {
         mShotBtn2 =  findViewById(R.id.shot_btn2);
         mShotBtn3 =  findViewById(R.id.shot_btn3);
         mShotBtn4 =  findViewById(R.id.shot_btn4);
+        mJump = findViewById(R.id.jump);
         mShotBtn.setOnTouchListener(onTouchListener);
         mShotBtn2.setOnTouchListener(onTouchListener);
         mShotBtn3.setOnTouchListener(onTouchListener);
         mShotBtn4.setOnTouchListener(onTouchListener);
         mMirrorBtn.setOnTouchListener(onTouchListener);
+        mJump.setOnTouchListener(onTouchListener);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
@@ -183,6 +193,7 @@ public class ShotActivity extends AppCompatActivity {
                 mShotBtn2.setVisibility(View.INVISIBLE);
                 mShotBtn3.setVisibility(View.INVISIBLE);
                 mStartBtn.setVisibility(View.INVISIBLE);
+                mJump.setVisibility(View.INVISIBLE);
                 mMirrorBtn.setVisibility(View.INVISIBLE);
                 final int time = 1000;
                 new Thread(new Runnable() {
@@ -202,9 +213,11 @@ public class ShotActivity extends AppCompatActivity {
                                 mShotBtn2.setVisibility(View.VISIBLE);
                                 mShotBtn3.setVisibility(View.VISIBLE);
                                 mShotBtn4.setVisibility(View.VISIBLE);
+                                mJump.setVisibility(View.VISIBLE);
                                 mStartTime = System.currentTimeMillis();
                                 mIsFirstShot = true;
                                 mShotCount = 0;
+                                mJumpCount = 0;
                                 mMirrorTime = 0;
                                 mShotTime = 0;
                                 mMoveX = 0;

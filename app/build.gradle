@@ -19,11 +19,12 @@ if (keystoreFilepath) {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
 //        applicationId "com.roger.demo4roger"
         minSdkVersion 25
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -58,6 +59,13 @@ android {
         }
     }
 
+    // 使用Apache的http
+    useLibrary 'org.apache.http.legacy'
+    
+//    aaptOptions {
+////        additionalParameters('-I', './libs/package-res.apk')
+//        additionalParameters('-I', 'libs/preference-27.1.1.aar')
+//    }
 // Specifies a flavor dimension.
     flavorDimensions "Roger"
 
@@ -70,13 +78,13 @@ android {
             dimension "Roger"
             applicationId "com.roger.interview"
         }
-        identityImg {
+        img {
             dimension "Roger"
-            applicationId "com.roger.identify4img"
+            applicationId "com.roger.img"
         }
-        dataStatistics {
+        yota {
             dimension "Roger"
-            applicationId "com.baoliyota.statistics"
+            applicationId "com.baoliyota.demo"
         }
         ShotTest {
             dimension "Roger"
@@ -88,7 +96,7 @@ android {
 //        main {
 //
 //        }
-        identifyImg { //Identify the images 图像识别,百度识图
+        img { //Identify the images 图像识别,百度识图
             manifest.srcFile 'src/img/AndroidManifest.xml' //manifest会被合并到app的main的manifest文件中
             java.srcDirs 'src/img/java' //java目录下的文件会被添加到main里的java目录中，所以不能和main里的类重名（含包名）
             res.srcDirs 'src/img/res' //res目录下的资源文件会替换main里的资源文件
@@ -106,14 +114,23 @@ android {
     }
 
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:26.1.0'
+    //    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    compile(name: 'preference', ext: 'aar')
+    //    implementation 'com.android.support:preference-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/cy_analysis-1.0.jar')
+//    implementation files('libs/classes-full-debug.jar')
 }

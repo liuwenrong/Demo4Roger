@@ -1,0 +1,6 @@
+<resources>
+     <style name="ThemeYota" parent="Theme.AppCompat.DayNight">
+         <item name="preferenceStyle">@style/AppTheme</item>
+         <item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+</resources>

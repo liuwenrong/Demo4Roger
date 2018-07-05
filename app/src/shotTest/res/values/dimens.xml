@@ -1,5 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="btn_size">132dp</dimen>
+    <dimen name="btn_size_middle">88dp</dimen>
+    <dimen name="btn_size_small">66dp</dimen>
     <dimen name="btn_radius">66dp</dimen>
 </resources>
