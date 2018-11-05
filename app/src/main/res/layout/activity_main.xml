@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context="com.roger.demo4roger.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/edit_copy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -15,5 +16,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_copy"
+        android:text="复制到剪切板"
+        android:onClick="onClickCopy"
+        app:layout_constraintTop_toBottomOf="@id/edit_copy"
+        />
 
 </android.support.constraint.ConstraintLayout>
