@@ -37,77 +37,90 @@
      android:layout_marginBottom="20dp"
      android:onClick="onClick"
      />
+
+
+    <Button
+        android:id="@+id/listener_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/start_btn"
+        android:layout_marginLeft="30dp"
+        android:text="听到声音"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="onClick"
+        />
+
     <View
-        android:id="@+id/mirror_btn"
-        android:layout_width="@dimen/btn_size_small"
-        android:layout_height="@dimen/btn_size_small"
+        android:id="@+id/aim_btn"
+        android:layout_width="@dimen/btn_size_middle"
+        android:layout_height="@dimen/btn_size_middle"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="0dp"
-        android:text="开镜"
-        android:background="@drawable/shot_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+        android:text="开镜瞄准"
+        android:background="@drawable/selector_bg_aim_btn"
         />
 
     <View
         android:id="@+id/shot_btn"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
+        android:layout_width="@dimen/btn_size_large"
+        android:layout_height="@dimen/btn_size_large"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="130dp"
         android:text="Shot1"
         android:visibility="invisible"
-        android:background="@drawable/shot_btn"
+        android:background="@drawable/selector_bg_shot_btn"
         />
 
     <View
-        android:id="@+id/shot_btn2"
+        android:id="@+id/left_btn"
+        android:layout_width="@dimen/btn_size_small"
+        android:layout_height="@dimen/btn_size_small"
+        android:text="Left探头"
+        android:visibility="visible"
+        android:background="@drawable/ic_left"
+        android:layout_alignTop="@+id/shot_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"/>
+
+    <View
+        android:id="@+id/shot_top_right_btn"
         android:layout_width="@dimen/btn_size"
         android:layout_height="@dimen/btn_size"
-        android:layout_marginLeft="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100dp"
         android:layout_marginTop="0dp"
-        android:text="Shot2"
+        android:text="ShotRight"
         android:visibility="invisible"
-        android:background="@drawable/shot_btn"
+        android:background="@drawable/ic_bg_fist"
         />
 
     <View
-        android:id="@+id/shot_btn3"
-        android:layout_width="@dimen/btn_size_middle"
-        android:layout_height="@dimen/btn_size_middle"
+        android:id="@+id/shot_right_bottom_btn"
+        android:layout_width="@dimen/btn_size_large"
+        android:layout_height="@dimen/btn_size_large"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="120dp"
-        android:text="Shot3"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="50dp"
+        android:text="ShotBottomRight"
         android:visibility="invisible"
-        android:background="@drawable/shot_btn"
-        />
-
-
-
-    <View
-        android:id="@+id/shot_btn4"
-        android:layout_width="@dimen/btn_size_middle"
-        android:layout_height="@dimen/btn_size_middle"
-        android:text="Shot4"
-        android:visibility="invisible"
-        android:background="@drawable/shot_btn"
+        android:background="@drawable/selector_bg_shot_btn"
         />
 
     <TextView
         android:id="@+id/jump"
         android:layout_width="@dimen/btn_size_small"
         android:layout_height="@dimen/btn_size_small"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="80dp"
         android:gravity="center"
         android:text="Jump"
         android:visibility="invisible"
-        android:background="@drawable/shot_btn"
-        />
+        android:background="@drawable/ic_jump"
+        android:layout_alignTop="@+id/shot_right_bottom_btn"
+        android:layout_alignParentEnd="true"/>
 
     <com.roger.shot.customview.WheelView2
         android:layout_width="@dimen/btn_size"
