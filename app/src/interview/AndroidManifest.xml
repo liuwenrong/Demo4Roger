@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.roger.interview.TestActivity">
+        <service
+            android:name="aron.demo.IPC.MyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <!-- android:name="com.roger.interview.TestActivity" -->
+        <activity android:name="aron.demo.ndk.NDKActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

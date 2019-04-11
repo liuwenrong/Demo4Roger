@@ -3,6 +3,7 @@ package com.roger.demo4roger;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,4 +18,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate:----------180326 DeviceName = " + DeviceName);
     }
 
+    public void onClickCopy(View view) {
+    }
 }

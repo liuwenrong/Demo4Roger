@@ -19,15 +19,21 @@ if (keystoreFilepath) {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion "27.0.3"
     defaultConfig {
 //        applicationId "com.roger.demo4roger"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+
+            moduleName "ndk_demo-jni"
+            abiFilters "armeabi-v7a", "x86"
+
+        }
     }
 
     signingConfigs {
@@ -46,15 +52,23 @@ android {
     }
 
     buildTypes {
+        externalNativeBuild {
+            ndkBuild {
+                path 'src/interview/jni/Android.mk'
+            }
+        }
         debug {
 //            minifyEnabled true
 //            shrinkResources true
             signingConfig signingConfigs.debug
+            debuggable true
+            buildConfigField("boolean", "LOG_DEBUG", "true")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             minifyEnabled false
             signingConfig signingConfigs.release
+            buildConfigField("boolean", "LOG_DEBUG", "false")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -76,7 +90,7 @@ android {
 //        }
         interview {
             dimension "Roger"
-            applicationId "com.roger.interview"
+            applicationId "aron.interview"
         }
         img {
             dimension "Roger"
@@ -105,6 +119,8 @@ android {
             manifest.srcFile 'src/interview/AndroidManifest.xml' //manifest会被合并到app的main的manifest文件中
             java.srcDirs 'src/interview/java' //java目录下的文件会被添加到main里的java目录中，所以不能和main里的类重名（含包名）
             res.srcDirs 'src/interview/res' //res目录下的资源文件会替换main里的资源文件
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['src/interview/jniLibs']
         }
         shotTest {
             manifest.srcFile 'src/shotTest/AndroidManifest.xml'
@@ -122,12 +138,12 @@ repositories {
 dependencies {
     //    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     compile(name: 'preference', ext: 'aar')
     //    implementation 'com.android.support:preference-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

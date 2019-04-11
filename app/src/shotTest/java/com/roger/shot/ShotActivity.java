@@ -88,10 +88,11 @@ public class ShotActivity extends AppCompatActivity {
                         }
                         break;*/
 
-                        case R.id.shot_btn:
+                        case R.id.shot_left_btn:
+                            playFireSound(1f, 0f);
                             fire();
                             break;
-                        case R.id.left_btn:
+                        case R.id.left_probe_btn:
                             playFireSound(1f, 0f);
                             fire();
                             break;
@@ -129,8 +130,8 @@ public class ShotActivity extends AppCompatActivity {
         mMoveVisualAngle.setOnTouchListener(onTouchListener);
         mMirrorBtn = findViewById(R.id.aim_btn);
         mStartBtn = findViewById(R.id.start_btn);
-        mShotBtn = findViewById(R.id.shot_btn);
-        mShotLeftBtn = findViewById(R.id.left_btn);
+        mShotBtn = findViewById(R.id.shot_left_btn);
+        mShotLeftBtn = findViewById(R.id.left_probe_btn);
         mShotBtn3 = findViewById(R.id.shot_top_right_btn);
         mShotBtn4 = findViewById(R.id.shot_right_bottom_btn);
         mJump = findViewById(R.id.jump);

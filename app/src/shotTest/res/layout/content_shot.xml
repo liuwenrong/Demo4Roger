@@ -64,24 +64,24 @@
         />
 
     <View
-        android:id="@+id/shot_btn"
+        android:id="@+id/shot_left_btn"
         android:layout_width="@dimen/btn_size_large"
         android:layout_height="@dimen/btn_size_large"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="130dp"
-        android:text="Shot1"
+        android:text="ShotLeft"
         android:visibility="invisible"
         android:background="@drawable/selector_bg_shot_btn"
         />
 
     <View
-        android:id="@+id/left_btn"
+        android:id="@+id/left_probe_btn"
         android:layout_width="@dimen/btn_size_small"
         android:layout_height="@dimen/btn_size_small"
         android:text="Left探头"
         android:visibility="visible"
         android:background="@drawable/ic_left"
-        android:layout_alignTop="@+id/shot_btn"
+        android:layout_alignTop="@+id/shot_left_btn"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="32dp"/>
 
